@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sentencia de Amor · Tribunal Supremo del Corazón</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            kitty: {
+                                50: "#fff5f8",
+                                100: "#ffe4ec",
+                                200: "#ffc9d9",
+                                300: "#ffa6c1",
+                                400: "#ff7ba3",
+                                500: "#f0508a",
+                            },
+                            gold: { 400: "#d4a94f", 500: "#b8892f" },
+                            ink: "#4a2c3a",
+                        },
+                        fontFamily: {
+                            legal: ['"Playfair Display"', "serif"],
+                            body: ['"Cormorant Garamond"', "serif"],
+                            cute: ["Quicksand", "sans-serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- RUTA AL CSS DENTRO DE SU CARPETA -->
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body class="bg-kitty-100 text-ink font-body">
+        <!-- Símbolo reutilizable: lazo rosa -->
+        <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+            <defs>
+                <symbol id="bow" viewBox="0 0 100 60">
+                    <path
+                        d="M50 30 C30 0, 0 5, 5 30 C0 55, 30 60, 50 30Z"
+                        fill="#ff7ba3"
+                        stroke="#f0508a"
+                        stroke-width="2.5"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M50 30 C70 0, 100 5, 95 30 C100 55, 70 60, 50 30Z"
+                        fill="#ff7ba3"
+                        stroke="#f0508a"
+                        stroke-width="2.5"
+                        stroke-linejoin="round"
+                    />
+                    <circle
+                        cx="50"
+                        cy="30"
+                        r="9"
+                        fill="#ffa6c1"
+                        stroke="#f0508a"
+                        stroke-width="2.5"
+                    />
+                </symbol>
+            </defs>
+        </svg>
+
+        <!-- Barra de progreso de lectura -->
+        <div
+            id="progress"
+            class="fixed top-0 left-0 h-1.5 bg-kitty-400 z-50"
+            style="width: 0%"
+        ></div>
+
+        <!-- Corazones flotantes de fondo -->
+        <div
+            id="floaties"
+            class="fixed inset-0 pointer-events-none overflow-hidden z-0"
+            aria-hidden="true"
+        ></div>
+
+        <main class="relative z-10 max-w-3xl mx-auto px-3 sm:px-6 py-8 sm:py-14">
+            <!-- ============ HOJA MEMBRETADA ============ -->
+            <article class="paper rounded-md p-5 sm:p-12">
+                <!-- Lazos decorativos en esquinas -->
+                <svg class="corner-bow top-left"><use href="#bow" /></svg>
+                <svg class="corner-bow top-right"><use href="#bow" /></svg>
+
+                <!-- ENCABEZADO -->
+                <header class="text-center">
+                    <p
+                        class="font-cute text-[11px] sm:text-xs tracking-[0.35em] text-kitty-500 uppercase"
+                    >
+                        República del Cariño · Sala Única
+                    </p>
+
+                    <div class="seal mx-auto my-5" aria-hidden="true">
+                        <span class="seal-inner">⚖️<br /><small>EST. CON AMOR</small></span>
+                    </div>
+
+                    <h1
+                        class="font-legal font-black text-2xl sm:text-4xl leading-tight uppercase tracking-wide"
+                    >
+                        Tribunal Supremo<br />del Corazón
+                    </h1>
+                    <div class="divider my-4"><span>🎀</span></div>
+                    <h2 class="font-legal italic text-lg sm:text-2xl text-kitty-500">
+                        Sentencia de Amor N.º 0919-2026
+                    </h2>
+                    <p class="mt-2 font-cute text-sm text-ink/70">
+                        Expediente: <strong>AMOR-019/2026</strong> · Materia: Cariño, mimos y
+                        derecho a abrazos
+                    </p>
+                </header>
+
+                <!-- PREÁMBULO -->
+                <section class="mt-10">
+                    <p class="text-lg sm:text-xl leading-relaxed text-justify">
+                        <span class="dropcap">V</span>ISTOS las pruebas de amor y complicidad en
+                        este caso, y <strong>CONSIDERANDO</strong> que la futura jueza
+                        <span class="fill" id="nameHer">Jennifer (mi amor)</span> ha demostrado con
+                        creces ser una persona increíble, brillante y maravillosa; que el suscrito
+                        <span class="fill" id="nameMe">Juan José</span> firma y respalda esto con
+                        todo el corazón; y que la lógica y el cariño mutuo así lo exigen, este
+                        Tribunal <strong>RESUELVE</strong> lo siguiente:
+                    </p>
+                </section>
+
+                <!-- ARTÍCULOS -->
+                <section class="mt-10 space-y-6" aria-label="Articulado">
+                    <div class="article">
+                        <h3><span class="art-no">Art. 1</span> Del derecho a los besos diarios</h3>
+                        <p>
+                            Se reconoce el derecho
+                            <em>indiscutible, imprescriptible e irrenunciable</em> a recibir besos
+                            diarios, sin necesidad de solicitud previa ni notificación por escrito.
+                        </p>
+                    </div>
+
+                    <div class="article">
+                        <h3>
+                            <span class="art-no">Art. 2</span> De la presunción de inocencia y el
+                            robo con violencia (de besos)
+                        </h3>
+                        <p>
+                            Toda persona se presume inocente hasta que se pruebe lo contrario… salvo
+                            en supuestos de
+                            <em>apropiación ilícita de abrazos, besos y atenciones</em>, o en
+                            desbordes de cariños hormonales inoportunos, donde opera de inmediato la
+                            inversión de la carga probatoria y la detención domiciliaria obligatoria
+                            en brazos del suscrito.
+                        </p>
+                    </div>
+
+                    <div class="article">
+                        <h3>
+                            <span class="art-no">Art. 3</span> De las metas, salidas y el monopolio
+                            del afecto
+                        </h3>
+                        <p>
+                            La Honorable Estudiante y futura jueza tendrá derecho indiscutible a
+                            cumplir todas sus metas, a exigentes sesiones de fotos para el recuerdo
+                            y a salidas obligatorias de fin de semana; quedando estrictamente
+                            prohibido y sancionado con besos extras
+                            <strong>fallarle al suscrito (Juan José)</strong>, quien detenta la
+                            exclusividad de su amor.
+                        </p>
+                    </div>
+
+                    <div class="article">
+                        <h3>
+                            <span class="art-no">Art. 4</span> Del mecanismo obligatorio para
+                            arreglar las cosas
+                        </h3>
+                        <p>
+                            Queda prohibido irse a dormir enojados o prolongar disputas. Todo
+                            conflicto será sometido a una
+                            <strong>audiencia de conciliación express</strong>, donde las partes
+                            deberán arreglar las cosas mediante salidas, mecatos, antojos
+                            compartidos y besos de reconciliación con efecto inmediato.
+                        </p>
+                    </div>
+
+                    <div class="article">
+                        <h3>
+                            <span class="art-no">Art. 5</span> Del apoyo incondicional, caprichos y
+                            arrunchis
+                        </h3>
+                        <p>
+                            El suscrito (Juan José) se compromete a brindar apoyo incondicional ante
+                            cualquier problema, capricho o necesidad que surja. Se estipula que los
+                            caprichos y antojos serán satisfechos de manera inmediata, ya sea
+                            mediante aportes monetarios o con su inestimable presencia en modo de
+                            <em>arrunchis, apapachos y compañía prolongada</em>.
+                        </p>
+                    </div>
+
+                    <div class="article">
+                        <h3>
+                            <span class="art-no">Art. 6</span> De la reserva absoluta y los autos de
+                            alteración pasional
+                        </h3>
+                        <p>
+                            Bajo rigurosa confidencialidad, se decreta que ante cualquier acto de
+                            alteración o provocación al suscrito por parte de la Honorable Jueza,
+                            <strong
+                                >ella asumirá plenamente las consecuencias jurídicas y
+                                pasionales</strong
+                            >. Se autorizan expresamente los encuentros clandestinos, la imaginación
+                            sin límites y la ejecución de sentencias guiadas por el deseo mutuo y el
+                            fuego incontrolable.
+                        </p>
+                    </div>
+
+                    <div class="article">
+                        <h3><span class="art-no">Art. 7</span> De la vigencia</h3>
+                        <p>
+                            La presente sentencia rige desde su firma, no admite recurso de
+                            apelación ni casación, y su vigencia es <strong>perpetua</strong>, con
+                            renovación automática de cariño cada día.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- GALERÍA / EXPEDIENTE FOTOGRÁFICO -->
+                <section class="mt-14" aria-label="Pruebas fotográficas">
+                    <div class="text-center">
+                        <h2
+                            class="font-legal text-xl sm:text-3xl font-bold uppercase tracking-wide"
+                        >
+                            Anexos Probatorios
+                        </h2>
+                        <p class="font-cute text-sm text-ink/70 mt-1">
+                            Pruebas documentales admitidas por el Tribunal 📎
+                        </p>
+                        <div class="divider my-3"><span>🌸</span></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-6">
+                        <figure class="polaroid" style="--rot: -3deg">
+                            <div class="photo">
+                                <span class="ph">📷<br />Pon aquí vuestra foto</span>
+                                <img
+                                    src="img/WhatsApp Image 2026-11-18 at 1.34.07 AM (8).jpeg"
+                                    alt="Foto de nosotros"
+                                    onerror="this.style.display = 'none'"
+                                />
+                            </div>
+                            <figcaption>Prueba A: El primer “sí” 💕</figcaption>
+                            <span class="tape"></span>
+                        </figure>
+
+                        <figure class="polaroid" style="--rot: 2.5deg">
+                            <div class="photo">
+                                <span class="ph">📷<br />Pon aquí vuestra foto</span>
+                                <img
+                                    src="img/WhatsApp Image 2026-11-18 at 1.34.07 AM (6).jpeg"
+                                    alt="Foto de nosotros"
+                                    onerror="this.style.display = 'none'"
+                                />
+                            </div>
+                            <figcaption>Prueba B: Nosotros ✨</figcaption>
+                            <span class="tape"></span>
+                        </figure>
+
+                        <figure class="polaroid" style="--rot: 1.5deg">
+                            <div class="photo">
+                                <span class="ph">👩‍⚖️<br />Foto de ella</span>
+                                <img
+                                    src="img/WhatsApp Image 2026-11-18 at 1.34.07 AM.jpeg"
+                                    alt="Foto de ella"
+                                    onerror="this.style.display = 'none'"
+                                />
+                            </div>
+                            <figcaption>Prueba C: La futura jueza 👩‍⚖️</figcaption>
+                            <span class="tape"></span>
+                        </figure>
+
+                        <figure class="polaroid" style="--rot: -2deg">
+                            <div class="photo">
+                                <span class="ph">🎀<br />Otra foto linda</span>
+                                <img
+                                    src="img/WhatsApp Image 2026-11-18 at 1.34.07 AM (5).jpeg"
+                                    alt="Otra foto"
+                                    onerror="this.style.display = 'none'"
+                                />
+                            </div>
+                            <figcaption>Prueba D: Evidencia de felicidad 🎀</figcaption>
+                            <span class="tape"></span>
+                        </figure>
+                    </div>
+                </section>
+
+                <!-- FIRMA Y ACEPTACIÓN -->
+                <section class="mt-14" id="firma" aria-label="Firma">
+                    <div class="text-center">
+                        <h2
+                            class="font-legal text-xl sm:text-3xl font-bold uppercase tracking-wide"
+                        >
+                            Aceptación y Firma
+                        </h2>
+                        <div class="divider my-3"><span>🖊️</span></div>
+                    </div>
+
+                    <label
+                        class="flex items-start gap-3 mt-5 cursor-pointer select-none font-cute text-sm sm:text-base"
+                    >
+                        <input type="checkbox" id="accept" class="mt-1 w-5 h-5 accent-pink-500" />
+                        <span
+                            >Declaro que he leído todos los artículos, los acepto con el corazón y
+                            entiendo que <strong>no hay devolución de besos</strong>. 💗</span
+                        >
+                    </label>
+
+                    <p class="font-cute text-xs text-ink/60 mt-5 mb-1">
+                        Firma aquí (con el dedo o el mouse):
+                    </p>
+                    <div class="sign-box">
+                        <canvas id="signPad"></canvas>
+                        <span class="sign-line">✗</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 mt-4 justify-center">
+                        <button id="clearSign" type="button" class="btn-ghost">Borrar firma</button>
+                        <button id="signBtn" type="button" class="btn-main" disabled>
+                            Firmar y sellar 🎀
+                        </button>
+                        <button
+                            id="downloadPdfBtn"
+                            type="button"
+                            class="btn-main hidden bg-purple-500 hover:bg-purple-600"
+                        >
+                            Descargar Expediente en PDF 📄
+                        </button>
+                    </div>
+
+                    <div id="stampWrap" class="relative h-0">
+                        <div id="stamp" class="stamp" aria-live="polite">
+                            <span>Aprobado por el</span>
+                            <strong>TRIBUNAL DEL AMOR</strong>
+                            <small id="stampDate"></small>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN DE SENTIMIENTO Y DECLARACIÓN FINAL -->
+                <section
+                    class="mt-16 p-6 sm:p-8 rounded-2xl bg-kitty-50 border-2 border-kitty-200 text-center relative shadow-sm"
+                    aria-label="Considerandos del Corazón"
+                >
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-1 rounded-full border border-kitty-200 text-xs font-cute text-kitty-500 font-bold uppercase tracking-wider"
+                    >
+                        ⚖️ Auto de Declaración y Sentimiento Profundo 💖
+                    </div>
+
+                    <h3 class="text-2xl font-cute text-kitty-600 mb-4 mt-2">
+                        Considerandos del Corazón
+                    </h3>
+
+                    <p
+                        class="text-base sm:text-lg text-ink/80 leading-relaxed text-justify mb-6 font-body"
+                    >
+                        Este Tribunal Supremo del Corazón deja constancia indeleble de que la vida
+                        junto a la futura jueza
+                        <span class="font-bold text-kitty-600">Jennifer</span> es el proceso más
+                        hermoso que le ha tocado fallar al suscrito. Se valora especialmente la luz
+                        de su sonrisa, la gracia de cada una de sus ocurrencias y la forma tan única
+                        en que ilumina los días ordinarios convirtiéndolos en extraordinarios.
+                    </p>
+
+                    <div
+                        class="p-4 rounded-xl bg-white/80 border border-kitty-200/60 text-ink font-body text-base italic shadow-inner"
+                    >
+                        "Por lo tanto, se declara formal y públicamente que el suscrito
+                        <span class="font-bold not-italic text-kitty-600">Juan José</span>
+                        la ama con absoluta locura, reconociendo que su felicidad es, y será
+                        siempre, la única sentencia firme de este corazón."
+                    </div>
+                </section>
+
+                <!-- PIE -->
+                <footer class="mt-16 text-center">
+                    <div class="divider my-3"><span>🎀</span></div>
+                    <p class="font-legal italic text-sm sm:text-base">
+                        “Dado y pasado en el Salón de los Corazones, firmado con todo el amor del
+                        mundo.”
+                    </p>
+                    <p class="font-cute text-xs text-ink/50 mt-3">
+                        Documento sin validez legal, pero con validez emocional absoluta ♥
+                    </p>
+                </footer>
+            </article>
+        </main>
+
+        <!-- RUTA AL JS -->
+        <script src="js/script.js"></script>
+    </body>
+</html>
